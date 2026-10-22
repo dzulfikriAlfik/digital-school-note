@@ -1,3 +1,9 @@
+# ============================================================
+# Monorepo root ignore rules.
+# Patterns without a leading slash apply recursively, so one
+# entry here also covers api/, FE/, Admin/ and Rostering/.
+# ============================================================
+
 # Logs
 logs
 *.log
@@ -34,9 +40,6 @@ bower_components
 # node-waf configuration
 .lock-wscript
 
-# Compiled binary addons (https://nodejs.org/api/addons.html)
-build/Release
-
 # Dependency directories
 node_modules/
 jspm_packages/
@@ -66,8 +69,10 @@ web_modules/
 .yarn-integrity
 
 # dotenv environment variable files
+# Real secrets must never be committed.
 .env
 .env.*
+# Templates are tracked on purpose, so new clones know what to fill in.
 !.env.example
 
 # parcel-bundler cache (https://parceljs.org/)
@@ -84,7 +89,6 @@ dist
 .output
 
 # Gatsby files
-.cache/
 # Comment in the public line in if your project uses Gatsby and not Next.js
 # https://nextjs.org/blog/next-9-1#public-directory-support
 # public
@@ -147,3 +151,19 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# Build output
+build/
+
+# Yarn PnP loader
+.pnp
+
+# Prisma
+# Generated client output; recreated by `prisma generate`.
+**/generated/prisma/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
